@@ -1,7 +1,6 @@
 package com.lucas.pokerevaluation;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.lucas.pokerevaluation.pojos.PokerHand;
 
 public class Poker {
 
@@ -9,12 +8,11 @@ public class Poker {
 		//Test Commit2
 		System.out.println("Hello world");
 		args=new String[]{"-h","7d","4c","8c", "6h", "5s"};
-		List<String> segments = new ArrayList<String>();
 		
-		for (int i = 0; i < args.length; i++) 
-		{
-				segments.add(args[i]);
-		}
+		
+		PokerHand hand = new PokerHand();
+		hand.parseFromInput(args);
+		
 		
 	}
 
