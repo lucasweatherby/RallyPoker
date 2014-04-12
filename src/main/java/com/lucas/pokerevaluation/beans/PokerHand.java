@@ -1,9 +1,10 @@
-package com.lucas.pokerevaluation.pojos;
+package com.lucas.pokerevaluation.beans;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.lucas.pokerevaluation.interfaces.PokerHandRankValidator;
+import com.lucas.pokerevaluation.pojos.Card;
 
 public class PokerHand implements PokerHandRankValidator{
 	

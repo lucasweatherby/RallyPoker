@@ -1,6 +1,6 @@
 package com.lucas.pokerevaluation;
 
-import com.lucas.pokerevaluation.pojos.PokerHand;
+import com.lucas.pokerevaluation.beans.PokerHand;
 
 public class Poker {
 
