@@ -13,11 +13,9 @@ public class Poker {
 		
 		for (int i = 0; i < args.length; i++) 
 		{
-
 				segments.add(args[i]);
-
 		}
-
+		
 	}
 
 }
