@@ -35,7 +35,7 @@ public class PokerRankingsTest {
 	@Test
 	public void flushTest() {
 		PokerHand hand = createTestPokerHand("7d 9d Jd 5d 4d");
-		assertEquals(true,hand.isFlush(hand.getCards()));
+		assertEquals(true,hand.isFlush());
 	}
 	
 	@Test

@@ -99,9 +99,17 @@ public class PokerHand implements PokerHandRankValidator{
 	}
 
 	@Override
-	public boolean isFlush(List<Card> cards) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isFlush() {
+		suit flushSuit = cards.get(0).getSuit();
+		for (Iterator iterator = cards.iterator(); iterator.hasNext();) {
+			Card card = (Card) iterator.next();
+			if(!card.getSuit().equals(flushSuit))
+			{
+				return false;
+			}
+		}
+		
+		return true;
 	}
 
 	@Override
