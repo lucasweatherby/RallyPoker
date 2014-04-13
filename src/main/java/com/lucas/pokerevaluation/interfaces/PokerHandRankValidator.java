@@ -1,10 +1,5 @@
 package com.lucas.pokerevaluation.interfaces;
 
-import java.util.List;
-
-import com.lucas.pokerevaluation.pojos.Card;
-
-
 public interface PokerHandRankValidator {
 	public boolean isPair();
 	public boolean isTwoPair();

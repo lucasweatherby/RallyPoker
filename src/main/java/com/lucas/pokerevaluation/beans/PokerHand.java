@@ -12,6 +12,18 @@ import com.lucas.pokerevaluation.pojos.Card.suit;
 public class PokerHand implements PokerHandRankValidator{
 	
 	private List<Card> cards = new ArrayList<Card>();
+	private handRank rank = handRank.UNDECIDED;
+	public handRank getRank() {
+		return rank;
+	}
+
+	public void setRank(handRank rank) {
+		this.rank = rank;
+	}
+
+	public enum handRank {
+		PAIR,TWO_PAIR,THREE_OF_A_KIND,STRAIGHT,FLUSH,FULL_HOUSE,FOUR_OF_A_KIND,STRAIGHT_FLUSH,ROYAL_FLUSH,INVALID_INPUT,UNDECIDED
+	}	
 
 	public List<Card> getCards() {
 		return cards;
@@ -23,7 +35,22 @@ public class PokerHand implements PokerHandRankValidator{
 	
 	public String getPokerHandRank()
 	{
-		return "";
+		if(isStraightFlush())
+		{
+			this.rank= handRank.STRAIGHT_FLUSH;
+			return this.getRank().toString();
+		}
+		if(isFlush())
+		{
+			this.rank= handRank.FLUSH;
+			return this.getRank().toString();
+		}
+		if(isStraight())
+		{
+			this.rank= handRank.STRAIGHT;
+			return this.getRank().toString();
+		}
+		return this.getRank().toString();
 	}
 	
 	public void parseFromInput(String[] args)
@@ -149,4 +176,6 @@ public class PokerHand implements PokerHandRankValidator{
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+	
 }
