@@ -11,7 +11,7 @@ The input arguments for the java progam should be a string of cards separated by
 JUnit Testing
 =============
 
-Testing was executed within Eclipse using JUnit. To run the unit tests, simply execute either PokerHandTest.java or PokerRangingsTest.Java from within Eclipse.
+Testing was executed within Eclipse using JUnit. To run the unit tests, simply run either PokerHandTest.java or PokerRangingsTest.Java from within Eclipse as a JUnitTest.
 
 Run the Progam
 ==============
