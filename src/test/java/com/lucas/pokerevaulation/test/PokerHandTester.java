@@ -103,6 +103,37 @@ public class PokerHandTester {
 		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
 	}
 	
+	@Test
+	public void missingValueTest() {
+		PokerHand hand = createTestPokerHand("7d c 8d 6d 5d");
+		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
+	}
+	
+	@Test
+	public void upperCaseSuitTest() {
+		PokerHand hand = createTestPokerHand("7d 4C 8d 6d 5d");
+		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
+	}
+	
+	@Test
+	public void lowerCaseValueTest() {
+		PokerHand hand = createTestPokerHand("ad 5c 8d 6d 5d");
+		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
+	}
+	
+	@Test
+	public void wrongValueTest() {
+		PokerHand hand = createTestPokerHand("Zd 5c 8d 6d 5d");
+		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
+	}
+	
+	
+	@Test
+	public void noSpacesTest() {
+		PokerHand hand = createTestPokerHand("Ad5c8d6d5d");
+		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
+	}
+	
 	private PokerHand createTestPokerHand(String inputString)
 	{
 		String[] args = inputString.split(" ");

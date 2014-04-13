@@ -35,6 +35,10 @@ public class PokerHand implements PokerHandRankValidator{
 	
 	public String getPokerHandRank()
 	{
+		if(this.rank == handRank.INVALID_INPUT)
+		{
+			return this.getRank().toString();
+		}
 		if(isRoyalFlush())
 		{
 			this.rank= handRank.ROYAL_FLUSH;
@@ -92,12 +96,23 @@ public class PokerHand implements PokerHandRankValidator{
 				segments.add(args[i]);
 		}
 		
+		if(segments.size() > 5 || segments.size() < 5)
+		{
+			this.rank = handRank.INVALID_INPUT;
+			return;
+		}
+		
 		for (Iterator<String> iterator = segments.iterator(); iterator.hasNext();) {
 			String segmentName=  (String) iterator.next();
 			String a = "";
 			Character b=null;
 			Card card = new Card();
-			if(segmentName.length()==2)
+			if(segmentName.length() < 2 || segmentName.length() >3)
+			{
+				this.rank = handRank.INVALID_INPUT;
+    			return;
+			}
+			else if(segmentName.length()==2)
 			{
 				a = segmentName.substring(0, 1);
 				b = segmentName.charAt(1);
@@ -109,7 +124,8 @@ public class PokerHand implements PokerHandRankValidator{
 			}
 			else
 			{
-				System.out.println("This is a problem");
+				//This will never happen
+				//System.out.println("This is a problem");
 			}
 			
 			switch (a) 
@@ -118,7 +134,14 @@ public class PokerHand implements PokerHandRankValidator{
 	            case "K":  card.setCardValue(13);break;
 	            case "Q":  card.setCardValue(12);break;
 	            case "J":  card.setCardValue(11);break;
-	            default: 	card.setCardValue(Integer.parseInt(a));break;
+	            default:
+	            	if(!isInteger(a) || Integer.parseInt(a) < 2 || Integer.parseInt(a) > 14)
+	            	{
+	            		this.rank = handRank.INVALID_INPUT;
+	        			return;
+	            	}
+	            	card.setCardValue(Integer.parseInt(a));
+	            	break;
 			}
 			
 			switch (b) 
@@ -127,6 +150,9 @@ public class PokerHand implements PokerHandRankValidator{
 	            case 'h':  card.setSuit(suit.HEARTS);break;
 	            case 'd':  card.setSuit(suit.DIAMONDS);break;
 	            case 's':  card.setSuit(suit.SPADES);break;
+	            default:
+	            	this.rank = handRank.INVALID_INPUT;
+        			return;
 			}
 			//System.out.println(card.getCardValue() + card.getSuit().toString());
 			cards.add(card);
@@ -293,6 +319,13 @@ public class PokerHand implements PokerHandRankValidator{
 		}
 		return highCard;
 	}
-
+	public boolean isInteger(String s) {
+        try {
+            System.out.println(Integer.parseInt(s));
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
 	
 }
