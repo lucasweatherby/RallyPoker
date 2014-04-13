@@ -19,3 +19,5 @@ Run the Progam
 The program can either be run through eclipse or as a jar. 
 
 To run as a JAR, the project should be exported as a Runnable JAR File with the launch configuration pointing at Poker.java. Through a command promt, navigate to the JAR file and enter the following command: java -jar JARFILENAME.jar 5d 4d 3d 4h 6h
+
+To run through Eclipse, right click on Poker.java. From here click "Run as>Run Configurations.." Switch to the arguments tab, specify the arguments in the format provided above. Click apply, then click run.
