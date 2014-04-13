@@ -45,6 +45,11 @@ public class PokerHand implements PokerHandRankValidator{
 			this.rank= handRank.FOUR_OF_A_KIND;
 			return this.getRank().toString();
 		}
+		if(isFullHouse())
+		{
+			this.rank= handRank.FULL_HOUSE;
+			return this.getRank().toString();
+		}
 		if(isFlush())
 		{
 			this.rank= handRank.FLUSH;
@@ -58,6 +63,11 @@ public class PokerHand implements PokerHandRankValidator{
 		if(isThreeOfAKind())
 		{
 			this.rank= handRank.THREE_OF_A_KIND;
+			return this.getRank().toString();
+		}
+		if(isTwoPair())
+		{
+			this.rank= handRank.TWO_PAIR;
 			return this.getRank().toString();
 		}
 		if(isPair())
@@ -132,7 +142,19 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isTwoPair() {
-		// TODO Auto-generated method stub
+		int[] rankCount = new int[14];
+		int pairCount = 0;
+		for (Card card : cards) {
+            rankCount[card.getCardValue()]++;
+        }
+		for (int i = 1; i < rankCount.length; i++) {
+			if(rankCount[i] == 2)
+				pairCount++;
+		}
+		if(pairCount==2)
+		{
+			return true;
+		}
 		return false;
 	}
 
@@ -185,7 +207,22 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isFullHouse() {
-		// TODO Auto-generated method stub
+		int[] rankCount = new int[14];
+		boolean pair = false;
+		boolean three = false;
+		for (Card card : cards) {
+            rankCount[card.getCardValue()]++;
+        }
+		for (int i = 1; i < rankCount.length; i++) {
+			if(rankCount[i] == 2)
+				pair = true;
+			if(rankCount[i] == 3)
+				three = true;
+		}
+		if(pair && three)
+		{
+			return true;
+		}
 		return false;
 	}
 
