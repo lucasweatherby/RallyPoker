@@ -35,6 +35,11 @@ public class PokerHand implements PokerHandRankValidator{
 	
 	public String getPokerHandRank()
 	{
+		if(isRoyalFlush())
+		{
+			this.rank= handRank.ROYAL_FLUSH;
+			return this.getRank().toString();
+		}
 		if(isStraightFlush())
 		{
 			this.rank= handRank.STRAIGHT_FLUSH;
@@ -122,7 +127,7 @@ public class PokerHand implements PokerHandRankValidator{
 	            case 'd':  card.setSuit(suit.DIAMONDS);break;
 	            case 's':  card.setSuit(suit.SPADES);break;
 			}
-			System.out.println(card.getCardValue() + card.getSuit().toString());
+			//System.out.println(card.getCardValue() + card.getSuit().toString());
 			cards.add(card);
 		}
 	}
@@ -246,7 +251,16 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isRoyalFlush() {
-		// TODO Auto-generated method stub
+		List<Integer> list = new ArrayList<Integer>();
+		for (Iterator iterator = cards.iterator(); iterator.hasNext();) {
+			Card card = (Card) iterator.next();
+			list.add(card.getCardValue());
+		}
+		Collections.sort( list );
+		if(isFlush() && isStraight() && list.get(0)==10 && list.get(list.size()-1) == 14)
+		{
+			return true;
+		}
 		return false;
 	}
 
