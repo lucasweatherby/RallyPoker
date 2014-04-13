@@ -29,7 +29,7 @@ public class PokerRankingsTest {
 	@Test
 	public void straightTest() {
 		PokerHand hand = createTestPokerHand("7d 4c 8c 6h 5s");
-		assertEquals(true,hand.isStraight(hand.getCards()));
+		assertEquals(true,hand.isStraight());
 	}
 
 	@Test

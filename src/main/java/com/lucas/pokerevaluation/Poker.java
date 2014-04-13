@@ -9,6 +9,14 @@ public class Poker {
 		PokerHand hand = new PokerHand();
 		hand.parseFromInput(args);
 		
+		if(hand.isStraight())
+		{
+			System.out.println("Hand is a straight");
+		}
+		else
+		{
+			System.out.println("Not a straight");
+		}
 		if(hand.isFlush())
 		{
 			System.out.println("Hand is a flush");

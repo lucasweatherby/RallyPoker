@@ -1,6 +1,7 @@
 package com.lucas.pokerevaluation.beans;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -93,9 +94,23 @@ public class PokerHand implements PokerHandRankValidator{
 	}
 
 	@Override
-	public boolean isStraight(List<Card> cards) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isStraight() {
+		List<Integer> list = new ArrayList<Integer>();
+		for (Iterator iterator = cards.iterator(); iterator.hasNext();) {
+			Card card = (Card) iterator.next();
+			list.add(card.getCardValue());
+		}
+		Collections.sort( list );
+		
+		for (int i = 0; i < list.size()-1; i++) 
+		{
+            if (list.get(i) !=  list.get(i + 1) -1) 
+            {
+                return false;
+            }
+        }
+		
+		return true;
 	}
 
 	@Override
