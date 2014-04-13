@@ -76,19 +76,19 @@ public class PokerHand implements PokerHandRankValidator{
 	}
 
 	@Override
-	public boolean isPair(List<Card> cards) {
+	public boolean isPair() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean isTwoPair(List<Card> cards) {
+	public boolean isTwoPair() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean isThreeOfAKind(List<Card> cards) {
+	public boolean isThreeOfAKind() {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -128,13 +128,13 @@ public class PokerHand implements PokerHandRankValidator{
 	}
 
 	@Override
-	public boolean isFullHouse(List<Card> cards) {
+	public boolean isFullHouse() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean isFourOfAKind(List<Card> cards) {
+	public boolean isFourOfAKind() {
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -145,7 +145,7 @@ public class PokerHand implements PokerHandRankValidator{
 	}
 
 	@Override
-	public boolean isRoyalFlush(List<Card> cards) {
+	public boolean isRoyalFlush() {
 		// TODO Auto-generated method stub
 		return false;
 	}

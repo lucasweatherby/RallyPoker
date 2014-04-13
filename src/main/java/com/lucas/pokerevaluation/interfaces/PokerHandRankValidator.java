@@ -6,14 +6,14 @@ import com.lucas.pokerevaluation.pojos.Card;
 
 
 public interface PokerHandRankValidator {
-	public boolean isPair(List<Card> cards);
-	public boolean isTwoPair(List<Card> cards);
-	public boolean isThreeOfAKind(List<Card> cards);
+	public boolean isPair();
+	public boolean isTwoPair();
+	public boolean isThreeOfAKind();
 	public boolean isStraight();
 	public boolean isFlush();
-	public boolean isFullHouse(List<Card> cards);
-	public boolean isFourOfAKind(List<Card> cards);
+	public boolean isFullHouse();
+	public boolean isFourOfAKind();
 	public boolean isStraightFlush();
-	public boolean isRoyalFlush(List<Card> cards);
+	public boolean isRoyalFlush();
 	
 }

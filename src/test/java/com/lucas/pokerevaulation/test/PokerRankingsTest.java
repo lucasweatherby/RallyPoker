@@ -11,19 +11,19 @@ public class PokerRankingsTest {
 	@Test
 	public void pairTest() {
 		PokerHand hand = createTestPokerHand("Qd 4c 8c Qh 5s");
-		assertEquals(true,hand.isPair(hand.getCards()));
+		assertEquals(true,hand.isPair());
 	}
 	
 	@Test
 	public void twoPairTest() {
 		PokerHand hand = createTestPokerHand("Qd 4c 8c Qh 4s");
-		assertEquals(true,hand.isTwoPair(hand.getCards()));
+		assertEquals(true,hand.isTwoPair());
 	}
 	
 	@Test
 	public void threeOfAKindTest() {
 		PokerHand hand = createTestPokerHand("Qd 4c 8c 4h 4s");
-		assertEquals(true,hand.isThreeOfAKind(hand.getCards()));
+		assertEquals(true,hand.isThreeOfAKind());
 	}
 	
 	@Test
@@ -41,12 +41,12 @@ public class PokerRankingsTest {
 	@Test
 	public void fullHouseTest() {
 		PokerHand hand = createTestPokerHand("7d 7c 7s 5d 5h");
-		assertEquals(true,hand.isFullHouse(hand.getCards()));
+		assertEquals(true,hand.isFullHouse());
 	}
 	@Test
 	public void fourOfAKindTest() {
 		PokerHand hand = createTestPokerHand("Qd 4c 4c 4h 4s");
-		assertEquals(true,hand.isFourOfAKind(hand.getCards()));
+		assertEquals(true,hand.isFourOfAKind());
 	}
 	
 	@Test
@@ -58,7 +58,7 @@ public class PokerRankingsTest {
 	@Test
 	public void royalFlushtest() {
 		PokerHand hand = createTestPokerHand("Ah Kh Qh Jh 10h");
-		assertEquals(true,hand.isRoyalFlush(hand.getCards()));
+		assertEquals(true,hand.isRoyalFlush());
 	}
 	
 	
