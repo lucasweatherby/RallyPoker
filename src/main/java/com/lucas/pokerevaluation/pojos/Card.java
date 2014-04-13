@@ -11,6 +11,7 @@ public class Card {
 	public int getCardValue() {
 		return cardValue;
 	}
+	
 	public void setCardValue(int cardValue) {
 		this.cardValue = cardValue;
 	}
@@ -18,8 +19,7 @@ public class Card {
 	public suit getSuit() {
 		return cardSuit;
 	}
-
-
+	
 	public void setSuit(suit cardSuit) {
 		this.cardSuit = cardSuit;
 	}

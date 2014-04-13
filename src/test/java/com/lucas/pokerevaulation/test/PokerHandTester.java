@@ -96,6 +96,6 @@ public class PokerHandTester {
 		String[] args = inputString.split(" ");
 		PokerHand hand = new PokerHand();
 		hand.parseFromInput(args);
-		return null;
+		return hand;
 	}
 }
