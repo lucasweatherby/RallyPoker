@@ -321,7 +321,6 @@ public class PokerHand implements PokerHandRankValidator{
 	}
 	public boolean isInteger(String s) {
         try {
-            System.out.println(Integer.parseInt(s));
         } catch (NumberFormatException e) {
             return false;
         }
