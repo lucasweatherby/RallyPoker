@@ -55,6 +55,16 @@ public class PokerHand implements PokerHandRankValidator{
 			this.rank= handRank.STRAIGHT;
 			return this.getRank().toString();
 		}
+		if(isThreeOfAKind())
+		{
+			this.rank= handRank.THREE_OF_A_KIND;
+			return this.getRank().toString();
+		}
+		if(isPair())
+		{
+			this.rank= handRank.PAIR;
+			return this.getRank().toString();
+		}
 		return this.getRank().toString();
 	}
 	
@@ -109,7 +119,14 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isPair() {
-		// TODO Auto-generated method stub
+		int[] rankCount = new int[14];
+		for (Card card : cards) {
+            rankCount[card.getCardValue()]++;
+        }
+		for (int i = 1; i < rankCount.length; i++) {
+			if(rankCount[i] == 2)
+				return true;
+		}
 		return false;
 	}
 
@@ -121,7 +138,14 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isThreeOfAKind() {
-		// TODO Auto-generated method stub
+		int[] rankCount = new int[14];
+		for (Card card : cards) {
+            rankCount[card.getCardValue()]++;
+        }
+		for (int i = 1; i < rankCount.length; i++) {
+			if(rankCount[i] == 3)
+				return true;
+		}
 		return false;
 	}
 
