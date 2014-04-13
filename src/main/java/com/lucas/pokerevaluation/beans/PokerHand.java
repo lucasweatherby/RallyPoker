@@ -40,6 +40,11 @@ public class PokerHand implements PokerHandRankValidator{
 			this.rank= handRank.STRAIGHT_FLUSH;
 			return this.getRank().toString();
 		}
+		if(isFourOfAKind())
+		{
+			this.rank= handRank.FOUR_OF_A_KIND;
+			return this.getRank().toString();
+		}
 		if(isFlush())
 		{
 			this.rank= handRank.FLUSH;
@@ -162,7 +167,14 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isFourOfAKind() {
-		// TODO Auto-generated method stub
+		int[] rankCount = new int[14];
+		for (Card card : cards) {
+            rankCount[card.getCardValue()]++;
+        }
+		for (int i = 1; i < rankCount.length; i++) {
+			if(rankCount[i] == 4)
+				return true;
+		}
 		return false;
 	}
 
