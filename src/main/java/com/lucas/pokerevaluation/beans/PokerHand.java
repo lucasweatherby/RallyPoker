@@ -22,7 +22,7 @@ public class PokerHand implements PokerHandRankValidator{
 	}
 
 	public enum handRank {
-		PAIR,TWO_PAIR,THREE_OF_A_KIND,STRAIGHT,FLUSH,FULL_HOUSE,FOUR_OF_A_KIND,STRAIGHT_FLUSH,ROYAL_FLUSH,INVALID_INPUT,UNDECIDED
+		PAIR,TWO_PAIR,THREE_OF_A_KIND,STRAIGHT,FLUSH,FULL_HOUSE,FOUR_OF_A_KIND,STRAIGHT_FLUSH,ROYAL_FLUSH,HIGH_CARD,INVALID_INPUT,UNDECIDED
 	}	
 
 	public List<Card> getCards() {
@@ -80,7 +80,8 @@ public class PokerHand implements PokerHandRankValidator{
 			this.rank= handRank.PAIR;
 			return this.getRank().toString();
 		}
-		return this.getRank().toString();
+		this.rank = handRank.HIGH_CARD;
+		return this.getRank().toString() + " " +  this.getHighCard();
 	}
 	
 	public void parseFromInput(String[] args)
@@ -134,7 +135,7 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isPair() {
-		int[] rankCount = new int[14];
+		int[] rankCount = new int[15];
 		for (Card card : cards) {
             rankCount[card.getCardValue()]++;
         }
@@ -147,7 +148,7 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isTwoPair() {
-		int[] rankCount = new int[14];
+		int[] rankCount = new int[15];
 		int pairCount = 0;
 		for (Card card : cards) {
             rankCount[card.getCardValue()]++;
@@ -165,7 +166,7 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isThreeOfAKind() {
-		int[] rankCount = new int[14];
+		int[] rankCount = new int[15];
 		for (Card card : cards) {
             rankCount[card.getCardValue()]++;
         }
@@ -212,7 +213,7 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isFullHouse() {
-		int[] rankCount = new int[14];
+		int[] rankCount = new int[15];
 		boolean pair = false;
 		boolean three = false;
 		for (Card card : cards) {
@@ -233,7 +234,7 @@ public class PokerHand implements PokerHandRankValidator{
 
 	@Override
 	public boolean isFourOfAKind() {
-		int[] rankCount = new int[14];
+		int[] rankCount = new int[15];
 		for (Card card : cards) {
             rankCount[card.getCardValue()]++;
         }
@@ -262,6 +263,27 @@ public class PokerHand implements PokerHandRankValidator{
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public String getHighCard()
+	{
+		List<Integer> list = new ArrayList<Integer>();
+		for (Iterator iterator = cards.iterator(); iterator.hasNext();) {
+			Card card = (Card) iterator.next();
+			list.add(card.getCardValue());
+		}
+		Collections.sort( list );
+		String highCard = list.get(list.size()-1).toString();
+		switch (highCard) 
+		{
+            case "14":  highCard = "A";break;
+            case "13":  highCard = "K";break;
+            case "12":  highCard = "Q";break;
+            case "11":  highCard = "J";break;
+            default: 	highCard = highCard;break;
+		}
+		return highCard;
 	}
 
 	

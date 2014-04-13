@@ -61,6 +61,12 @@ public class PokerRankingsTest {
 		assertEquals(true,hand.isRoyalFlush());
 	}
 	
+	@Test
+	public void highCardTest() {
+		PokerHand hand = createTestPokerHand("Qd 4c 8c Jh 5s");
+		assertEquals("Q",hand.getHighCard());
+	}
+	
 	
 	private PokerHand createTestPokerHand(String inputString)
 	{

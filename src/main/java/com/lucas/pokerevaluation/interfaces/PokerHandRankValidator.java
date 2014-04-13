@@ -10,5 +10,6 @@ public interface PokerHandRankValidator {
 	public boolean isFourOfAKind();
 	public boolean isStraightFlush();
 	public boolean isRoyalFlush();
+	public String getHighCard();
 	
 }
