@@ -52,7 +52,7 @@ public class PokerRankingsTest {
 	@Test
 	public void straightFlushtest() {
 		PokerHand hand = createTestPokerHand("7d 4d 8d 6d 5d");
-		assertEquals(true,hand.isStraightFlush(hand.getCards()));
+		assertEquals(true,hand.isStraightFlush());
 	}
 	
 	@Test

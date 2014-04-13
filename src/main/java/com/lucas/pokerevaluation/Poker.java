@@ -25,6 +25,14 @@ public class Poker {
 		{
 			System.out.println("Not a flush");
 		}
+		if(hand.isStraightFlush())
+		{
+			System.out.println("Hand is a straight flush");
+		}
+		else
+		{
+			System.out.println("Not a straight flush");
+		}
 	}
 
 }

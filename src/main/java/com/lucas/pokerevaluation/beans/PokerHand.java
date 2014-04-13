@@ -140,9 +140,8 @@ public class PokerHand implements PokerHandRankValidator{
 	}
 
 	@Override
-	public boolean isStraightFlush(List<Card> cards) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isStraightFlush() {
+		return (isFlush() && isStraight());
 	}
 
 	@Override

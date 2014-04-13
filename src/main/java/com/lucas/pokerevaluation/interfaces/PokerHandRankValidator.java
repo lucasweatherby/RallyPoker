@@ -13,7 +13,7 @@ public interface PokerHandRankValidator {
 	public boolean isFlush();
 	public boolean isFullHouse(List<Card> cards);
 	public boolean isFourOfAKind(List<Card> cards);
-	public boolean isStraightFlush(List<Card> cards);
+	public boolean isStraightFlush();
 	public boolean isRoyalFlush(List<Card> cards);
 	
 }
