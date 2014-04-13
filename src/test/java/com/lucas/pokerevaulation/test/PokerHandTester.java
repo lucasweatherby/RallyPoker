@@ -62,6 +62,12 @@ public class PokerHandTester {
 	}
 	
 	@Test
+	public void highCardtest() {
+		PokerHand hand = createTestPokerHand("Ah Kc 7s 5c 10h");
+		assertEquals("HIGH_CARD A",hand.getPokerHandRank());
+	}
+	
+	@Test
 	public void twentyFiveTest() {
 		PokerHand hand = createTestPokerHand("Ah 25h Qh Jh 10h");
 		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
@@ -88,6 +94,12 @@ public class PokerHandTester {
 	@Test
 	public void invalidSuitTest() {
 		PokerHand hand = createTestPokerHand("7d 4z 8d 6d 5d");
+		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
+	}
+	
+	@Test
+	public void missingSuitTest() {
+		PokerHand hand = createTestPokerHand("7d 4 8d 6d 5d");
 		assertEquals("INVALID_INPUT",hand.getPokerHandRank());
 	}
 	

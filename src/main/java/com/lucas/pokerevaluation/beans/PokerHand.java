@@ -185,6 +185,14 @@ public class PokerHand implements PokerHandRankValidator{
 			list.add(card.getCardValue());
 		}
 		Collections.sort( list );
+		//Functionality to test for low Ace Straight
+		//We know if the hand contains and Ace and a 2, then the ace must be low card
+		if(list.get(0) == 2 && list.get(list.size()-1) == 14)
+		{
+			list.remove(list.size()-1);
+			list.add(1);
+		}
+		Collections.sort( list );
 		
 		for (int i = 0; i < list.size()-1; i++) 
 		{
